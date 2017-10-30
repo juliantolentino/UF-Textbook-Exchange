@@ -1,33 +1,41 @@
-<nav class="nav">
-  <div class="nav-left">
-    <a class="nav-item logo" routerLink="/">
-      <img src="assets/images/angularfirebase.png" width="30px" alt="Firestarter Angular4 Demo App"/> FireStarter
-    </a>
-  </div>
 
-  <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
-  <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
-  <span class="nav-toggle" (click)="toggleCollapse()" [ngClass]="{'is-active': show}">
-    <span></span>
-    <span></span>
-    <span></span>
-  </span>
+<!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">UF Textbook Exchange</a>
+          </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a class="nav-item" routerLink="/login">
+                      Login
+                </a></li>
+                <li><a class="nav-item" routerLink="/notes">
+                  Firestore
+                </a></li>
+                <li><a class="nav-item" routerLink="/items">
+                  Realtime DB
+                </a></li>
+                <li><a class="nav-item" routerLink="/uploads">
+                  File Uploads
+                </a></li>
 
-  <!-- This "nav-menu" is hidden on mobile -->
-  <!-- Add the modifier "is-active" to display it on mobile -->
-  <div class="nav-right nav-menu" [ngClass]="{'is-active': show}">
-    <a class="nav-item" routerLink="/login">
-      Login
-    </a>
-    <a class="nav-item" routerLink="/notes">
-      Firestore
-    </a>
-    <a class="nav-item" routerLink="/items">
-      Realtime DB
-    </a>
-    <a class="nav-item" routerLink="/uploads">
-      File Uploads
-    </a>
-  </div>
+              </ul>
+              <form class="navbar-form">
+                <div style="display:table;" class="input-group">
+                  <span style="width: 1%;" class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                  <input type="text" autofocus="autofocus" autocomplete="off" placeholder="Search Here" name="search" style="" class="form-control">
+                </div>
+              </form>
 
-</nav>
+
+            </div>
+        </div><!--/.container-fluid -->
+      </nav>
+
