@@ -1,12 +1,13 @@
-<h3 [ngClass]="{ 'strike-out': !item.active }">
+<div class="card">
+  <img class="img-thumbnail" width="150px" src={{item.url}} alt="Card image cap">
+<h4 [ngClass]="{ 'strike-out': !item.active }">
   {{ item.title || 'missing title' }}
-</h3>
-
-
-<div class="card-content">
-
-  Task Active?: {{ item.active }}<br>
-  {{ item.timeStamp | date: 'medium' }}
+</h4>
+  {{item.author}}<br>
+  {{item.course}}<br>
+  {{item.price}}<br>
+  <!--Task Active?: {{ item.active }}<br>
+  {{ item.timeStamp | date: 'medium' }}-->
 
 </div>
 
