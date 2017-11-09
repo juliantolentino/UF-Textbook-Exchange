@@ -14,6 +14,7 @@ import { UserFormComponent } from '../user-form/user-form.component';
 import { TopNavComponent } from '../top-nav/top-nav.component';
 import { FooterNavComponent } from '../footer-nav/footer-nav.component';
 import { ReadmePageComponent } from '../readme-page/readme-page.component';
+import { FilterPageComponent } from '../filter-page/filter-page.component';
 
 
 
@@ -32,12 +33,14 @@ import { ReadmePageComponent } from '../readme-page/readme-page.component';
     TopNavComponent,
     FooterNavComponent,
     UserFormComponent,
-    ReadmePageComponent
+    ReadmePageComponent,
+    FilterPageComponent,
   ],
   exports: [
     TopNavComponent,
     FooterNavComponent,
     UserProfileComponent,
+    FilterPageComponent,
   ]
 })
 export class UiModule { }
