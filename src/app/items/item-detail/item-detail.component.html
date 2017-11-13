@@ -1,18 +1,29 @@
 <div class="card">
   <img class="img-thumbnail" width="150px" src={{item.url}} alt="Card image cap">
+
 <h4 [ngClass]="{ 'strike-out': !item.active }">
   {{ item.title || 'missing title' }}
 </h4>
   {{item.author}}<br>
-  {{item.course}}<br>
   {{item.price}}<br>
   <!--Task Active?: {{ item.active }}<br>
   {{ item.timeStamp | date: 'medium' }}-->
+  <div *ngIf="showHide">
+  	ISBN: {{item.isbn}}<br>
+  	Edition: {{item.edition}}<br>
+    Course: {{item.course}}<br>
+    Instructor: {{item.instructor}}<br>
+    Required by Instructor?: {{item.required}}<br>
+    Condition: {{item.condition}}<br>
+    Location: {{item.location}}<br>
+    Seller: {{item.username}}<br>
+    Contact Information: {{item.contactInformation}}<br>
 
+  </div>
 </div>
 
 <div class="card-footer">
-  <span class="button is-small is-info card-footer-item" (click)='updateTimeStamp()'>Update Timestamp</span>
+  <span class="button is-small is-info card-footer-item" (click)="showHide = !showHide">Show all details</span>
   <span class="button is-small is-success card-footer-item" *ngIf='item.active' (click)='updateActive(false)'>Mark Complete</span>
   <span class="button is-small is-warning card-footer-item" *ngIf='!item.active' (click)='updateActive(true)'>Mark Incomplete</span>
   <span class="button is-small is-danger card-footer-item" (click)='deleteItem()'>Delete</span>
