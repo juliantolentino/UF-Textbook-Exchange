@@ -18,7 +18,7 @@ import { BookService } from '../shared/book.service';
 export class ItemFormComponent implements OnInit {
 
     item: Item = new Item();
-    list: Listing = new Listing();
+    listing: Listing = new Listing();
     listings: any;
     getBooks: any;
   constructor(private itemSvc: ItemService, private listingSvc: ListingService, private bookSvc: BookService) { 
@@ -30,8 +30,11 @@ export class ItemFormComponent implements OnInit {
   }
 
   createItem() {
+    this.listingSvc.createItem(this.listing)
+    this.listing = new Listing()
     this.itemSvc.createItem(this.item)
     this.item = new Item() // reset item
+    
   }
 
 }

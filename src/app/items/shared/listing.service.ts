@@ -7,7 +7,7 @@ import * as _ from 'lodash';
 @Injectable()
 export class ListingService {
 
-  private basePath = '/book';
+  private basePath = '/listing';
 
   listingsRef: AngularFireList<Listing>;
   listingRef:  AngularFireObject<Listing>;
@@ -16,7 +16,7 @@ export class ListingService {
   listing:  Observable<Listing>;   //   single object
 
   constructor(private db: AngularFireDatabase) {
-    this.listingsRef = db.list('/book')
+    this.listingsRef = db.list('/listing')
   }
 
   getListingsList(query?) {
@@ -31,6 +31,11 @@ export class ListingService {
     const listingPath = `${this.basePath}/${key}`;
     this.listing = this.db.object(listingPath).valueChanges();
     return this.listing
+  }
+
+  createItem(listing: Listing): void {
+    console.log("tried to make new")
+    this.listingsRef.push(listing)
   }
 
 }

@@ -2,26 +2,58 @@
 
     <label class="label">Name: </label>
 
-    <input placeholder="Class Code" class="input"
-    [(ngModel)]="item.code"
-    required minlength="7" maxlength="8"
-    #code='ngModel' autofocus>
+    Course Code
+    <select [(ngModel)] = "listing.course" required>
+      <option selected disabled> Choose one </option>
+      <option *ngFor= "let book of getBooks | async" [ngValue] = "book.course">{{book.course}}</option>
+    </select>
 
     <input placeholder="Book Title" class="input"
-    [(ngModel)]="item.title"
-    required minlength="2" maxlength="23"
+    [(ngModel)]="listing.title"
+    required minlength="2"
     #title='ngModel' autofocus>
-   
-    Course Code
-    <select>
-      <option *ngFor= "let book of getBooks | async">{{book.course}}</option>
-    </select>>
+
+    <input placeholder="ISBN" class="input"
+    [(ngModel)]="listing.ISBN"
+    required minlength="7" maxlength="8"
+    #isbn='ngModel' autofocus>
+
+    <input placeholder="Author" class="input"
+    [(ngModel)]="listing.author"
+    #author='ngModel' autofocus>
+
+    <input placeholder="Edition" class="input"
+    [(ngModel)]="listing.edition"
+    #edition='ngModel' autofocus>
+
+    
+    Book Condition
+    <select [(ngModel)] = "listing.condition" required>
+      <option selected disabled> Choose Condition</option>
+      <option value="new">Like new</option>
+      <option value="good">Good</option>
+      <option value="used">Used</option>
+    </select>
+
+    <input placeholder="Contact Information" class="input"
+    [(ngModel)]="listing.contactInformation"
+    #contact='ngModel' autofocus>
+    
+    <input placeholder="Price" class="input"
+    [(ngModel)]="listing.price"
+    #price='ngModel' autofocus>
+
+    <input placeholder="Location" class="input"
+    [(ngModel)]="listing.location"
+    #location='ngModel' autofocus>
+
+
     <div *ngIf="title.dirty">
       <span *ngIf='title.errors; then errors else valid'>template renders here...</span>
     </div>
 
 
-    <button class="button is-primary" (click)='createItem()' [disabled]="!title.valid || !code.valid">Create</button>
+    <button class="button is-primary" (click)='createItem()' [disabled]="!title.valid">Create</button>
 
 
 <ng-template #valid>
