@@ -2,6 +2,13 @@
 
 <p>Create, view or edit your listings.</p>
 
+<h4>Class</h4>
+  <input [(ngModel)]="class" (change)="filterExact('class', class)">
+  <button *ngIf="class"
+          (click)="removeFilter('class')">
+          Remove filter
+  </button>
+
 <div *ngFor="let item of items | async" class="card">
   <item-detail [item]='item'></item-detail>
 </div>
