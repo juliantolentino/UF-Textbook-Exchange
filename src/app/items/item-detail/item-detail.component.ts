@@ -20,8 +20,6 @@ export class ItemDetailComponent implements OnInit {
 }
 
   ngOnInit() {
-    console.log('item-detail');
-    console.log(this.item.$key);
     this.key = this.item.$key;
 
   }
