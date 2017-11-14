@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Item } from '../shared/item';
+import { Listing } from '../shared/listing';
+import { AngularFireDatabase, AngularFireList, AngularFireObject,  } from 'angularfire2/database';
+
 import { ItemService } from '../shared/item.service';
+import { ListingService } from '../shared/listing.service';
+import { BookService } from '../shared/book.service';
+
+
 
 @Component({
   selector: 'item-form',
@@ -10,16 +17,24 @@ import { ItemService } from '../shared/item.service';
 })
 export class ItemFormComponent implements OnInit {
 
-  item: Item = new Item();
-
-  constructor(private itemSvc: ItemService) { }
+    item: Item = new Item();
+    listing: Listing = new Listing();
+    listings: any;
+    getBooks: any;
+  constructor(private itemSvc: ItemService, private listingSvc: ListingService, private bookSvc: BookService) { 
+  }
 
   ngOnInit() {
+    this.getBooks = this.bookSvc.getBooksList();
+    
   }
 
   createItem() {
+    this.listingSvc.createItem(this.listing)
+    this.listing = new Listing()
     this.itemSvc.createItem(this.item)
     this.item = new Item() // reset item
+    
   }
 
 }
