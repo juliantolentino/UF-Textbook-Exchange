@@ -6,7 +6,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { SharedModule } from '../../shared/shared.module';
 
 import { ItemService } from './item.service';
-import { ListingService } from './listing.service';
 import { BookService } from './book.service';
 
 
@@ -29,7 +28,6 @@ import { ItemDetailComponent } from '../item-detail/item-detail.component';
   ],
   providers: [
     ItemService,
-    ListingService,
     BookService
   ]
 })
