@@ -17,7 +17,7 @@ export class BookService {
 
 
   constructor(private db: AngularFireDatabase) {
-    this.bookList = db.list('/book');
+    this.bookList = db.list('/book',ref=> ref.orderByChild('course'));
   }
 
   getBooksList(query?) {
